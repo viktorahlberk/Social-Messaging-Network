@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  backend:
+
+    build: backend/
+    command: ./social-network
+    ports:
+      - 8081:8081
+
+  frontend:
+
+    build: frontend/ 
+    command: [ "http-server", "dist" ]
+    ports:
+      - 8080:8080
+    depends_on:
+      - backend
